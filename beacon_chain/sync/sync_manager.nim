@@ -778,5 +778,6 @@ proc syncLoop[A, B](man: SyncManager[A, B]) {.async.} =
     await sleepAsync(chronos.seconds(2))
 
 proc start*[A, B](man: SyncManager[A, B]) =
+  ## Modify syncLoop to have sleep delay based on number of blocks to delay by?  
   ## Starts SyncManager's main loop.
   man.syncFut = man.syncLoop()
